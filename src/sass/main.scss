@@ -1,0 +1,259 @@
+@use './colors' as colors;
+@use './variables' as variable;
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	line-height: 1.5;
+	font: inherit;
+}
+.wrapper {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+body {
+	font-family: 'League Spartan', sans-serif;
+	font-size: 62.5%;
+	background-color: colors.$main-section-color;
+}
+
+a {
+	text-decoration: none;
+}
+
+.sticky-body {
+	overflow: hidden;
+}
+
+.header {
+	position: sticky;
+	top: 0;
+	right: 0;
+	left: 0;
+	height: 60px;
+	background-color: #061017;
+	z-index: 3;
+}
+
+.nav {
+	&__container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0.5em 2em;
+	}
+
+	&__logo {
+		color: #208390;
+		text-shadow: 1px 1px 0px #74eeff;
+		font-weight: 700;
+		font-size: 1.5rem;
+
+		span {
+			color: #fff;
+		}
+		z-index: 3;
+	}
+
+	&__navbar {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		padding: 0.5em 2em;
+		background-color: #061017;
+		transform: translateX(120%);
+		transition: transform 0.4s;
+		overflow: hidden;
+
+		&--active {
+			transform: translateX(0);
+		}
+	}
+
+	&__links {
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+	}
+
+	li {
+		padding: 0.5em 0.5em;
+		margin: 4em 0;
+		text-align: center;
+	}
+
+	&__link {
+		color: colors.$main-font-color;
+		font-size: 1.5rem;
+		font-weight: 500;
+		text-transform: uppercase;
+		transition: color 0.3s;
+
+		&:hover {
+			color: colors.$hover-color;
+		}
+	}
+}
+
+.intro {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 90vh;
+	width: 100%;
+	background: linear-gradient(179deg, #061017 18.72%, #000f21 52.13%, #0c1827 99.17%);
+	&__blob {
+		position: absolute;
+		background-position: center;
+		background-size: contain;
+		background-repeat: no-repeat;
+
+		&--top {
+			height: 196px;
+			width: 230px;
+			right: 0px;
+			top: -1px;
+			background-image: url(../img/visual-effect.svg);
+		}
+
+		&--bottom {
+			height: 196px;
+			width: 230px;
+			left: 0;
+			bottom: 0;
+			background-image: url(../img/visual-effect-bottom.svg);
+		}
+	}
+
+	&__3d-object {
+		position: absolute;
+		background-position: center;
+		background-size: contain;
+		background-repeat: no-repeat;
+
+		&--first {
+			height: 50px;
+			width: 40px;
+			top: 70px;
+			left: 50px;
+			background-image: url(../img/Cube-1.svg);
+			animation: rotate 20s infinite ease-in-out;
+		}
+		&--second {
+			height: 50px;
+			width: 40px;
+			top: 40px;
+			right: 50px;
+			background-image: url(../img/RoundCube-1.svg);
+			animation: move 20s infinite ease-in;
+		}
+		&--third {
+			height: 50px;
+			width: 40px;
+			bottom: 50px;
+			right: 60px;
+			background-image: url(../img/SuperToroid-2.svg);
+		}
+
+		@keyframes rotate {
+			from {
+				transform: translate(0%);
+				transform: rotate(360deg);
+			}
+
+			50% {
+				transform: translate(10%);
+				transform: rotate(0);
+			}
+
+			to {
+				transform: translate(0%);
+				transform: rotate(360deg);
+			}
+		}
+
+		@keyframes move {
+			from {
+				transform: translate(0) translateY(0) rotate(0);
+			}
+
+			50% {
+				transform: translate(50%) translateY(-10%) rotate(120deg);
+			}
+
+			to {
+				transform: translate(0) translate(0) rotate(0);
+			}
+		}
+	}
+
+	.wrapper {
+		display: flex;
+		height: 100%;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		padding-top: 8em;
+		padding: 4em 2em;
+	}
+
+	&__text-box {
+		text-align: center;
+		z-index: 2;
+	}
+
+	&__title {
+		font-weight: 700;
+		font-size: 2.5rem;
+		color: #fff;
+		margin: 0 0 0.5em 0;
+		background: linear-gradient(270deg, #fff 5.92%, rgba(208, 205, 205, 0.98) 92.91%);
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+
+	&__subtitle {
+		font-size: 1.4rem;
+		font-weight: 300;
+		color: colors.$second-font-color;
+	}
+
+	&__projects-btn {
+		position: relative;
+		width: 160px;
+		height: 40px;
+
+		// mixin
+		font-size: 1.1rem;
+		background-color: #186f7a;
+		border-radius: 10px;
+		margin: 2em 0 0 0;
+		padding: 0.4em;
+
+		span {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			text-align: center;
+			color: #fff;
+			font-weight: 500;
+			text-transform: uppercase;
+		}
+	}
+}
