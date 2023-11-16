@@ -150,7 +150,7 @@ a {
 			width: 40px;
 			top: 70px;
 			left: 50px;
-			background-image: url(../img/Cube-1.svg);
+			background-image: url(./../img/Cube-1.svg);
 			animation: rotate 20s infinite ease-in-out;
 		}
 		&--second {
@@ -158,7 +158,7 @@ a {
 			width: 40px;
 			top: 40px;
 			right: 50px;
-			background-image: url(../img/RoundCube-1.svg);
+			background-image: url(./../img/RoundCube-1.svg);
 			animation: move 20s infinite ease-in;
 		}
 		&--third {
@@ -166,7 +166,8 @@ a {
 			width: 40px;
 			bottom: 50px;
 			right: 60px;
-			background-image: url(../img/SuperToroid-2.svg);
+			background-image: url(./../img/SuperToroid-2.svg);
+			animation: move 10s infinite reverse;
 		}
 
 		@keyframes rotate {
