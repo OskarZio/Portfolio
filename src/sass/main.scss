@@ -20,7 +20,7 @@
 	width: 100%;
 	max-width: 1200px;
 	margin: 0 auto;
-	padding: 5em 3em;
+	padding: 5em 1.8em;
 }
 
 body {
@@ -258,7 +258,7 @@ a {
 	}
 }
 
-.recent-projects {
+.projects {
 	.wrapper {
 		align-items: flex-start;
 	}
@@ -275,55 +275,64 @@ a {
 		flex-direction: column;
 	}
 	&__card {
+		display: flex;
+		justify-content: flex-end;
+		flex-direction: column;
+		height: 300px;
 		width: 100%;
-		max-width: 500px;
+
 		background-color: #3632e3;
 		border-radius: 10px;
 		margin-bottom: 3em;
-
-		&-img {
-			height: 200px;
-			background-image: url(./../img/placeholder-portfolio.png);
-			background-repeat: no-repeat;
-			background-size: cover;
-			background-position: center;
-			border-radius: 10px 10px 0 0px;
-		}
+		background-image: url(./../img/placeholder-img.png);
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
 
 		&-box {
-			padding: 2em 2em;
+			padding: 2em 2em 0.5em 2em;
 		}
 
 		&-title {
-			font-size: 1.4rem;
-			font-weight: 500;
+			font-size: 1.5rem;
+			font-weight: 600;
 			color: #fff;
 			margin-bottom: 0.5em;
 		}
 
 		&-text {
-			font-size: 1.2rem;
+			font-size: 1rem;
 			color: #d9d6d6;
-			font-weight: 300;
-			margin-bottom: 1em;
+			font-weight: 400;
+			margin-bottom: 0.5em;
+		}
+		&-technologies {
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+			height: 40px;
+			width: 100%;
+			padding: 0 2em;
 		}
 
-		&-btn {
-			position: relative;
+		&-technology {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-width: 50px;
+			height: 20px;
+			margin: 0.5em 0.5em 2em 0;
+			margin-right: 0.5em;
+			margin-bottom: 2em;
+			font-size: 0.7rem;
+			padding: 1em 1em;
 			color: #fff;
-			font-size: 1rem;
-
-			&::after {
-				position: absolute;
-				content: '';
-				width: 100%;
-				height: 0.5px;
-				background-color: #fff;
-				bottom: -2px;
-				left: 0;
-			}
+			font-weight: 500;
+			background-color: #3632e3;
+			border-radius: 10px;
 		}
 	}
+
 	&__btn {
 		position: relative;
 		font-size: 1.2rem;
