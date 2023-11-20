@@ -1,0 +1,27 @@
+@mixin btn {
+	font-size: 1.1rem;
+	background-color: #3632e3;
+	border-radius: 10px;
+	margin: 2em 0 0 0;
+	padding: 0.4em;
+}
+
+@mixin title {
+	position: relative;
+	font-size: 1.8rem;
+	font-weight: bold;
+	color: #fff;
+	margin-bottom: 1.5em;
+	text-transform: uppercase;
+
+	// &::after {
+	// 	position: absolute;
+	// 	content: '';
+	// 	width: 100%;
+	// 	height: 4px;
+	// 	bottom: -6px;
+	// 	left: 0;
+	// 	background-color: rgb(25, 95, 215);
+	// 	border-radius: 10px;
+	// }
+}
