@@ -15,7 +15,6 @@
 .wrapper {
 	display: flex;
 	align-items: flex-start;
-	justify-content: center;
 	flex-direction: column;
 	width: 100%;
 	max-width: 1200px;
@@ -290,7 +289,7 @@ a {
 		background-position: center;
 
 		&-box {
-			padding: 2em 2em 0.5em 2em;
+			padding: 2em 1em 0.5em 1em;
 		}
 
 		&-title {
@@ -312,7 +311,7 @@ a {
 			align-items: center;
 			height: 40px;
 			width: 100%;
-			padding: 0 2em;
+			padding: 0 1em;
 		}
 
 		&-technology {
@@ -398,8 +397,8 @@ a {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		height: 80px;
-		width: 80px;
+		height: 70px;
+		width: 70px;
 		border-radius: 10px;
 		margin: 0.5em 1em 0.5em 0;
 
@@ -500,5 +499,51 @@ a {
 .contact {
 	&__title {
 		@include mixin.title;
+	}
+
+	&__form {
+		width: 100%;
+	}
+
+	&__label {
+		font-size: 1.2rem;
+		color: #fff;
+		margin-bottom: 0.5em;
+	}
+
+	&__input-box,
+	&__textarea-box {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 1.5em;
+	}
+
+	&__input,
+	&__textarea {
+		height: 45px;
+		border-radius: 10px;
+		padding: 0.5em 1em;
+		font-size: 1rem;
+		font-weight: 500;
+		background-color: #fff;
+		border: none;
+	}
+
+	&__textarea {
+		max-width: 100%;
+		min-width: 100%;
+		min-height: 300px;
+		padding: 1em;
+	}
+
+	&__form-btn {
+		width: 100%;
+		padding: 0.8em 0.5em;
+		border-radius: 10px;
+		border: none;
+		background-color: #3632e3;
+		font-size: 1.1rem;
+		font-weight: 700;
+		color: #fff;
 	}
 }

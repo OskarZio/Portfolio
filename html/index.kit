@@ -105,14 +105,14 @@
             <div class="wrapper">
                 <h2 class="skills__title">Moje umiejętnośći</h2>
                 <div class="skills__technologies-icons">
-                    <i class="skills__technology-icon"><img src="/dist/img/html5-plain.svg" alt=""></i>
-                    <i class="skills__technology-icon"><img src="/dist/img//css-icon.svg" alt=""></i>
-                    <i class="skills__technology-icon"><img src="/dist/img/sass-icon.svg" alt=""></i>
-                    <i class="skills__technology-icon"><img src="/dist/img/javascript-icon.svg" alt=""></i>
-                    <i class="skills__technology-icon"><img src="/dist/img/figma-icon.svg" alt=""></i>
-                    <i class="skills__technology-icon"><img src="/dist/img/git-icon.svg" alt=""></i>
-                    <i class="skills__technology-icon"><img src="/dist/img/react-icon.svg" alt=""></i>
-                    <i class="skills__technology-icon"><img src="/dist/img/github-icon.svg" alt=""></i>
+                    <i class="skills__technology-icon"><img src="dist/img/html5-plain.svg" alt=""></i>
+                    <i class="skills__technology-icon"><img src="dist/img//css-icon.svg" alt=""></i>
+                    <i class="skills__technology-icon"><img src="dist/img/sass-icon.svg" alt=""></i>
+                    <i class="skills__technology-icon"><img src="dist/img/javascript-icon.svg" alt=""></i>
+                    <i class="skills__technology-icon"><img src="dist/img/figma-icon.svg" alt=""></i>
+                    <i class="skills__technology-icon"><img src="dist/img/git-icon.svg" alt=""></i>
+                    <i class="skills__technology-icon"><img src="dist/img/react-icon.svg" alt=""></i>
+                    <i class="skills__technology-icon"><img src="dist/img/github-icon.svg" alt=""></i>
 
                 </div>
                 <div class="skills__text-box">
@@ -129,7 +129,7 @@
                 <h2 class="service__title">co oferuje</h2>
                 <div class="service__cards">
                     <div class="service__card">
-                        <i class="service__card-icon"><img src="/dist/img/coding-icon.svg" alt=""></i>
+                        <i class="service__card-icon"><img src="dist/img/coding-icon.svg" alt=""></i>
                         <h3 class="service__card-title">tworzenie stron internetowych</h3>
                         <p class="service__card-text">amet consectetur. Mauris integer orci non id nisl feugiat
                             consectetur. Urna sed odio proin arcu.
@@ -137,7 +137,7 @@
                             Urna sed odio proin arcu.</p>
                     </div>
                     <div class="service__card">
-                        <i class="service__card-icon"><img src="/dist/img/responsive-icon.svg" alt=""></i>
+                        <i class="service__card-icon"><img src="dist/img/responsive-icon.svg" alt=""></i>
                         <h3 class="service__card-title">responsywność</h3>
                         <p class="service__card-text">amet consectetur. Mauris integer orci non id nisl feugiat
                             consectetur. Urna sed odio proin arcu.
@@ -145,7 +145,7 @@
                             Urna sed odio proin arcu.</p>
                     </div>
                     <div class="service__card">
-                        <i class="service__card-icon"><img src="/dist/img/design-icon.svg" alt=""></i>
+                        <i class="service__card-icon"><img src="dist/img/design-icon.svg" alt=""></i>
                         <h3 class="service__card-title">Projektowanie</h3>
                         <p class="service__card-text">amet consectetur. Mauris integer orci non id nisl feugiat
                             consectetur. Urna sed odio proin arcu.
@@ -158,15 +158,22 @@
             <div class="wrapper">
                 <h2 class="contact__title">Kontakt</h2>
                 <form class="contact__form">
-                    <label for="name">Imię</label>
-                    <input type="text" name="name" id="name">
-                    Email</label>
-                    <input type="email" name="email" id="name">
+                    <div class="contact__input-box">
+                        <label for="name" class="contact__label">Imię</label>
+                        <input type="text" name="name" id="name" class="contact__input" placeholder="imię">
+                    </div>
 
-                    <label for="text">Wiadomość</label>
-                    <textarea name="textarea" id="text"></textarea>
+                    <div class="contact__input-box">
+                        <label for="email" class="contact__label">Email</label>
+                        <input type="email" name="email" id="email" class="contact__input" placeholder="your@email.com">
+                    </div>
 
-                    <button>Wyślij</button>
+                    <div class="contact__textarea-box">
+                        <label for="text" class="contact__label">Wiadomość</label>
+                        <textarea name="textarea" id="text" class="contact__textarea" placeholder="Wiadomość"></textarea>
+                    </div>
+
+                    <button type="button" class="contact__form-btn">Wyślij</button>
                 </form>
             </div>
             </section>
