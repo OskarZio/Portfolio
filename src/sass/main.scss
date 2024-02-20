@@ -1,5 +1,5 @@
 @use './colors' as colors;
-@use './variables' as variable;
+@use './variables' as variables;
 @use './mixins' as mixin;
 
 *,
@@ -14,18 +14,17 @@
 
 .wrapper {
 	display: flex;
-	align-items: flex-start;
 	flex-direction: column;
 	width: 100%;
 	max-width: 1200px;
 	margin: 0 auto;
-	padding: 4em 1.8em 4em;
+	padding: 2em 1.8em 4em;
 }
 
 // Ważna rzecz, trzeba dodać zmienne z każdą wielkością odpowiedniego fonta
 
 body {
-	font-family: 'League Spartan', sans-serif;
+	font-family: 'Sora', sans-serif;
 	background-color: colors.$main-section-color;
 	height: 100%;
 }
@@ -62,10 +61,10 @@ a {
 		color: #208390;
 		text-shadow: 1px 1px 0px #74eeff;
 		font-weight: 700;
-		font-size: 1.5rem;
+		font-size: variables.$h3-font-size;
 
 		span {
-			color: #fff;
+			color: colors.$main-font-color;
 		}
 		z-index: 3;
 	}
@@ -103,11 +102,13 @@ a {
 		padding: 0.5em 0.5em;
 		margin: 4em 0;
 		text-align: center;
+		text-decoration: none;
+		list-style-type: none;
 	}
 
 	&__link {
 		color: colors.$main-font-color;
-		font-size: 1.5rem;
+		font-size: variables.$h3-font-size;
 		font-weight: 500;
 		text-transform: uppercase;
 		transition: color 0.3s;
@@ -122,128 +123,51 @@ a {
 	position: relative;
 	display: flex;
 	justify-content: center;
-	align-items: center;
-	min-height: calc(100svh - 60px);
 	width: 100%;
 	background: linear-gradient(179deg, #061017 18.72%, #000f21 52.13%, #0c1827 99.17%);
-	&__blob {
-		position: absolute;
-		background-position: center;
-		background-size: contain;
-		background-repeat: no-repeat;
-
-		&--top {
-			height: 196px;
-			width: 230px;
-			right: 0px;
-			top: -1px;
-			background-image: url(../img/visual-effect.svg);
-		}
-
-		&--bottom {
-			height: 196px;
-			width: 230px;
-			left: 0;
-			bottom: -1px;
-			background-image: url(../img/visual-effect-bottom.svg);
-		}
-	}
-
-	&__3d-object {
-		position: absolute;
-		background-position: center;
-		background-size: contain;
-		background-repeat: no-repeat;
-
-		&--first {
-			height: 50px;
-			width: 40px;
-			top: 70px;
-			left: 50px;
-			background-image: url(./../img/Cube-1.svg);
-			animation: rotate 20s infinite ease-in-out;
-		}
-		&--second {
-			height: 50px;
-			width: 40px;
-			top: 40px;
-			right: 50px;
-			background-image: url(./../img/RoundCube-1.svg);
-			animation: move 20s infinite ease-in;
-		}
-		&--third {
-			height: 50px;
-			width: 40px;
-			bottom: 50px;
-			right: 60px;
-			background-image: url(./../img/SuperToroid-2.svg);
-			animation: move 10s infinite reverse;
-		}
-
-		@keyframes rotate {
-			from {
-				transform: translate(0%);
-				transform: rotate(360deg);
-			}
-
-			50% {
-				transform: translate(10%);
-				transform: rotate(0);
-			}
-
-			to {
-				transform: translate(0%);
-				transform: rotate(360deg);
-			}
-		}
-
-		@keyframes move {
-			from {
-				transform: translate(0) translateY(0) rotate(0);
-			}
-
-			50% {
-				transform: translate(50%) translateY(-10%) rotate(120deg);
-			}
-
-			to {
-				transform: translate(0) translate(0) rotate(0);
-			}
-		}
-	}
 
 	.wrapper {
-		padding: 8em 2em;
+		padding: 3em 2em 2em 2em;
 	}
 
 	&__text-box {
-		text-align: center;
 		z-index: 2;
 	}
 
 	&__title {
 		font-weight: 700;
-		font-size: 2.5rem;
-		color: #fff;
+		font-size: variables.$h1-font-size;
 		margin: 0 0 0.5em 0;
-		background: linear-gradient(270deg, #fff 5.92%, rgba(208, 205, 205, 0.98) 92.91%);
+		background: linear-gradient(90deg, colors.$main-font-color 10%, colors.$btn-color);
 		background-clip: text;
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 	}
 
 	&__subtitle {
-		font-size: 1.4rem;
+		font-size: variables.$h3-font-size;
 		font-weight: 300;
 		color: colors.$second-font-color;
 	}
 
-	&__projects-btn {
+	&__btns {
+		display: flex;
+		width: 100%;
+	}
+
+	&__btn {
 		position: relative;
-		align-self: center;
-		width: 160px;
+		width: 120px;
 		height: 40px;
 		z-index: 2;
+
+		&:nth-child(1) {
+			margin-right: 1em;
+		}
+		&:nth-child(2) {
+			background-color: #fff;
+			color: #000;
+		}
 
 		// mixin
 		@include mixin.btn;
@@ -254,9 +178,40 @@ a {
 			left: 50%;
 			transform: translate(-50%, -50%);
 			text-align: center;
-			color: #fff;
 			font-weight: 500;
-			text-transform: uppercase;
+		}
+	}
+
+	&__img {
+		position: relative;
+		width: 100%;
+		margin: 3em 0 0em 0;
+
+		img {
+			width: 100%;
+			border-radius: 15px;
+		}
+	}
+
+	&__img-btn {
+		position: absolute;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		bottom: 0;
+		right: 0;
+		height: 20%;
+		width: calc(20% + 9.48px);
+		border-radius: 50%;
+		background-color: colors.$btn-color;
+
+		span {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 50%;
+			width: 50%;
+			@include mixin.img('../../dist/img/img-btn-arrow.svg');
 		}
 	}
 }
@@ -274,68 +229,64 @@ a {
 		flex-direction: column;
 	}
 	&__card {
-		display: flex;
-		justify-content: flex-end;
-		flex-direction: column;
-		height: 300px;
+		// display: flex;
+		// justify-content: flex-end;
+		// flex-direction: column;
+		height: 250px;
 		width: 100%;
-
-		background-color: #3632e3;
-		border-radius: 10px;
+		border-radius: variables.$border-radius;
 		margin-bottom: 3em;
-		background-image: url(./../img/placeholder-img.png);
-		background-repeat: no-repeat;
+		@include mixin.img('./../img/placeholder-img.png');
 		background-size: cover;
-		background-position: center;
 
-		&-box {
-			padding: 2em 1em 0.5em 1em;
-		}
+		// &-box {
+		// 	padding: 2em 1em 0.5em 1em;
+		// }
 
-		&-title {
-			font-size: 1.5rem;
-			font-weight: 600;
-			color: #fff;
-			margin-bottom: 0.5em;
-		}
+		// &-title {
+		// 	font-size: variables.$h3-font-size;
+		// 	font-weight: 600;
+		// 	color: #fff;
+		// 	margin-bottom: 0.5em;
+		// }
 
-		&-text {
-			font-size: 1rem;
-			color: #d9d6d6;
-			font-weight: 400;
-			margin-bottom: 0.5em;
-		}
-		&-technologies {
-			display: flex;
-			justify-content: flex-start;
-			align-items: center;
-			height: 40px;
-			width: 100%;
-			padding: 0 1em;
-		}
+		// &-text {
+		// 	font-size: 1rem;
+		// 	color: variables.$second-font-color;
+		// 	font-weight: 400;
+		// 	margin-bottom: 0.5em;
+		// }
+		// &-technologies {
+		// 	display: flex;
+		// 	justify-content: flex-start;
+		// 	align-items: center;
+		// 	height: 40px;
+		// 	width: 100%;
+		// 	padding: 0 1em;
+		// }
 
-		&-technology {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			min-width: 50px;
-			height: 20px;
-			margin: 0.5em 0.5em 2em 0;
-			margin-right: 0.5em;
-			margin-bottom: 2em;
-			font-size: 0.7rem;
-			padding: 1em 1em;
-			color: #fff;
-			font-weight: 500;
-			background-color: #3632e3;
-			border-radius: 10px;
-		}
+		// &-technology {
+		// 	display: flex;
+		// 	justify-content: center;
+		// 	align-items: center;
+		// 	min-width: 50px;
+		// 	height: 20px;
+		// 	margin: 0.5em 0.5em 2em 0;
+		// 	margin-right: 0.5em;
+		// 	margin-bottom: 2em;
+		// 	font-size: 0.7rem;
+		// 	padding: 1em 1em;
+		// 	color: #fff;
+		// 	font-weight: 500;
+		// 	background-color: colors.$btn-color;
+		// 	border-radius: variables.$border-radius;
+		// }
 	}
 
-	&__btn {
+	&__link {
 		position: relative;
-		font-size: 1.2rem;
-		color: #fff;
+		font-size: variables.$font-size;
+		color: colors.$main-font-color;
 		align-self: center;
 
 		&::after {
@@ -343,9 +294,9 @@ a {
 			content: '';
 			width: 100%;
 			height: 3px;
-			background-color: #3632e3;
+			background-color: colors.$btn-color;
 			bottom: -6px;
-			border-radius: 10px;
+			border-radius: variables.$border-radius;
 			left: 0;
 		}
 	}
@@ -363,15 +314,12 @@ a {
 	}
 
 	&__subtitle {
-		font-size: 1.5rem;
-		color: #fff;
-		font-weight: 700;
-		margin-bottom: 1em;
+		@include mixin.subtitle;
 	}
 
 	&__text {
-		font-size: 1.2rem;
-		color: #d9d6d6;
+		font-size: variables.$font-size;
+		color: colors.$second-font-color;
 		margin-bottom: 1em;
 	}
 	&__text-box {
@@ -399,7 +347,7 @@ a {
 		align-items: center;
 		height: 70px;
 		width: 70px;
-		border-radius: 10px;
+		border-radius: variables.$border-radius;
 		margin: 0.5em 1em 0.5em 0;
 
 		&:nth-child(1) {
@@ -433,15 +381,12 @@ a {
 	}
 
 	&__subtitle {
-		font-weight: 700;
-		font-size: 1.5rem;
-		color: #fff;
-		margin-bottom: 1em;
+		@include mixin.subtitle;
 	}
 
 	&__info {
-		color: #d9d6d6;
-		font-size: 1.2rem;
+		color: colors.$second-font-color;
+		font-size: variables.$font-size;
 	}
 }
 
@@ -461,7 +406,7 @@ a {
 	&__card {
 		position: relative;
 		background-color: #213042;
-		border-radius: 10px;
+		border-radius: variables.$border-radius;
 		padding: 1.5em;
 		padding-top: 4.5em;
 		margin-bottom: 5em;
@@ -474,20 +419,20 @@ a {
 			height: 90px;
 			width: 90px;
 			top: -45px;
-			background-color: #6663ff;
-			border-radius: 10px;
+			background-color: colors.$btn-color;
+			border-radius: variables.$border-radius;
 		}
 
 		&-title {
-			font-size: 1.2rem;
+			font-size: variables.$h3-font-size;
 			text-transform: uppercase;
 			color: #fff;
 			font-weight: 700;
-			margin-bottom: 1em;
+			margin-bottom: 0.5em;
 		}
 
 		&-text {
-			color: #cacaca;
+			color: colors.$second-font-color;
 		}
 
 		&:nth-child(3) {
@@ -506,8 +451,8 @@ a {
 	}
 
 	&__label {
-		font-size: 1.2rem;
-		color: #fff;
+		font-size: 1rem;
+		color: colors.$main-font-color;
 		margin-bottom: 0.5em;
 	}
 
@@ -521,7 +466,7 @@ a {
 	&__input,
 	&__textarea {
 		height: 45px;
-		border-radius: 10px;
+		border-radius: variables.$border-radius;
 		padding: 0.5em 1em;
 		font-size: 1rem;
 		font-weight: 500;
@@ -539,11 +484,107 @@ a {
 	&__form-btn {
 		width: 100%;
 		padding: 0.8em 0.5em;
-		border-radius: 10px;
+		border-radius: variables.$border-radius;
 		border: none;
-		background-color: #3632e3;
+		background-color: colors.$btn-color;
 		font-size: 1.1rem;
-		font-weight: 700;
+		font-weight: 500;
 		color: #fff;
 	}
+}
+
+.footer {
+	background-color: colors.$second-section-color;
+
+	.wrapper {
+		padding-bottom: 2em;
+	}
+
+	&__title {
+		@include mixin.subtitle;
+	}
+
+	&__description {
+		color: colors.$second-font-color;
+		margin-bottom: 1em;
+	}
+
+	&__link {
+		text-decoration: underline;
+		color: #b1dbff;
+	}
+
+	&__links {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 2em 0 0 0;
+	}
+
+	&__logo {
+		span {
+			color: colors.$main-font-color;
+		}
+
+		&-link {
+			font-size: 1.3rem;
+			color: #208390;
+			text-shadow: 1px 1px 0px #74eeff;
+			font-weight: 700;
+		}
+	}
+
+	&__socials {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&__social {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: 0 0.4em;
+
+		&-link {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 30px;
+			width: 30px;
+		}
+
+		&-icon {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100%;
+			width: 100%;
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center;
+
+			&--mail {
+				background-image: url(../../dist/img/facebook-icon.svg);
+			}
+			&--github {
+				background-image: url(../../dist/img/github-icon-white.svg);
+			}
+			&--instagram {
+				background-image: url(../../dist/img/instagram-icon.svg);
+			}
+		}
+	}
+}
+
+.show-fade-up {
+	transform: translateY(0) !important;
+	opacity: 1 !important;
+}
+
+.animation {
+	opacity: 0;
+	transform: translateY(10px);
+	transition: transform 0.5s ease-in-out , opacity 0.5s ease-in-out;
+	
 }
