@@ -18,7 +18,7 @@ const observerFadeUp = new IntersectionObserver(
 			if (entry.isIntersecting) observerFadeUp.unobserve(entry.target)
 		})
 	},
-	{ threshold: 1 }
+	{ threshold: 0.4 }
 )
 
 elementsAnimated.forEach(el => {

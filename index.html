@@ -115,8 +115,8 @@
         <section class="skills">
             <div class="wrapper">
                 <h2 class="skills__title animation">Moje umiejętnośći</h2>
-                <div class="skills__cards animation">
-                    <div class="skills__card">
+                <div class="skills__cards">
+                    <div class="skills__card animation">
                         <div class="skills__card-title">Web development</div>
                         <div class="skills__card-items">
                             <div class="skills__card-item"><i class="skills__card-icon">+</i> HTML5</div>
@@ -127,7 +127,7 @@
                             <div class="skills__card-item"><i class="skills__card-icon">+</i> Git</div>
                         </div>
                     </div>
-                    <div class="skills__card">
+                    <div class="skills__card animation">
                         <div class="skills__card-title">Design</div>
                         <div class="skills__card-items">
                             <div class="skills__card-item"><i class="skills__card-icon">+</i> Figma</div>
@@ -135,15 +135,15 @@
                             <div class="skills__card-item"><i class="skills__card-icon">+</i> Illustarator</div>
                         </div>
                     </div>
-            
-                </div>
+
+                </divdata-tilt>
             </div>
         </section>
         <section class="service">
             <div class="wrapper">
                 <h2 class="service__title animation">Co oferuje</h2>
                 <div class="service__cards">
-                    <div class="service__card animation">
+                    <div data-tilt data-tilt-glare data-tilt-max-glare="0.8" class="service__card animation">
                         <i class="service__card-icon"><img src="dist/img/coding-icon.svg" alt=""></i>
                         <h3 class="service__card-title">tworzenie stron internetowych</h3>
                         <p class="service__card-text">amet consectetur. Mauris integer orci non id nisl feugiat
@@ -151,7 +151,7 @@
                             Lorem ipsum dolor sit amet consectetur. Mauris integer orci non id nisl feugiat consectetur.
                             Urna sed odio proin arcu.</p>
                     </div>
-                    <div class="service__card animation">
+                    <div data-tilt data-tilt-glare data-tilt-max-glare="0.8" class="service__card animation">
                         <i class="service__card-icon"><img src="dist/img/responsive-icon.svg" alt=""></i>
                         <h3 class="service__card-title">responsywność</h3>
                         <p class="service__card-text">amet consectetur. Mauris integer orci non id nisl feugiat
@@ -159,7 +159,7 @@
                             Lorem ipsum dolor sit amet consectetur. Mauris integer orci non id nisl feugiat consectetur.
                             Urna sed odio proin arcu.</p>
                     </div>
-                    <div class="service__card animation">
+                    <div data-tilt data-tilt-glare data-tilt-max-glare="0.8" class="service__card animation">
                         <i class="service__card-icon"><img src="dist/img/design-icon.svg" alt=""></i>
                         <h3 class="service__card-title">Projektowanie</h3>
                         <p class="service__card-text">amet consectetur. Mauris integer orci non id nisl feugiat
@@ -172,24 +172,23 @@
         <section class="contact">
             <div class="wrapper">
                 <h2 class="contact__title animation">Kontakt</h2>
-                <form class="contact__form">
+                <form class="contact__form animation">
                     <div class="contact__input-box">
-                        <label for="name" class="contact__label animation">Imię</label>
-                        <input type="text" name="name" id="name" class="contact__input animation" placeholder="imię">
+                        <label for="name" class="contact__label">Imię</label>
+                        <input type="text" name="name" id="name" class="contact__input" placeholder="imię">
                     </div>
 
                     <div class="contact__input-box">
-                        <label for="email" class="contact__label animation">Email</label>
-                        <input type="email" name="email" id="email" class="contact__input animation"
-                            placeholder="your@email.com">
+                        <label for="email" class="contact__label">Email</label>
+                        <input type="email" name="email" id="email" class="contact__input" placeholder="your@email.com">
                     </div>
 
                     <div class="contact__textarea-box">
-                        <label for="text" class="contact__label animation">Wiadomość</label>
-                        <textarea name="textarea" id="text" class="contact__textarea animation"
+                        <label for="text" class="contact__label">Wiadomość</label>
+                        <textarea name="textarea" id="text" class="contact__textarea"
                             placeholder="Wiadomość"></textarea>
                     </div>
-                    <button type="button" class="contact__form-btn animation">Wyślij</button>
+                    <button type="submit" class="contact__form-btn">Wyślij</button>
                 </form>
             </div>
         </section>
@@ -221,7 +220,9 @@
         </div>
     </div>
 </footer>
+    <script type="text/javascript" src="dist/js/vanilla-titlt.min.js"></script>
     <script src="dist/js/script.min.js"></script>
+
 </body>
 
 </html>

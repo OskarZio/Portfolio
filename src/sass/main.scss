@@ -49,6 +49,10 @@ a {
 	overflow: hidden;
 }
 
+*:focus {
+	outline-color: rgb(133, 116, 191);
+}
+
 .header {
 	position: sticky;
 	top: 0;
@@ -57,10 +61,20 @@ a {
 	height: 70px;
 	background-color: #000000;
 	z-index: 3;
+
+	&::before {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		-webkit-backdrop-filter: blur(10px);
+		backdrop-filter: blur(10px);
+	}
 }
 
 .nav {
 	height: 100%;
+
 	&__container {
 		height: 100%;
 		display: flex;
@@ -170,15 +184,14 @@ a {
 		z-index: 2;
 
 		&:nth-child(1) {
+			@include mixin.btn(#2523a0);
 			margin-right: 1.6em;
 		}
 		&:nth-child(2) {
+			@include mixin.btn(#c8c2c262);
 			background-color: #fff;
 			color: #000;
 		}
-
-		// mixin
-		@include mixin.btn;
 
 		span {
 			position: absolute;
@@ -283,7 +296,20 @@ a {
 			background-color: colors.$btn-color;
 			bottom: -6px;
 			border-radius: var(--border-radius);
-			left: 0;
+			left: 50%;
+			transform: translate(-50%);
+			transition: width 0.3s;
+		}
+
+		&:hover {
+			color: #7da6fe;
+			transition: color 0.3s;
+		}
+
+		&:hover::after {
+			width: 50%;
+			left: 50%;
+			transform: translate(-50%);
 		}
 	}
 }
@@ -462,6 +488,7 @@ a {
 	}
 
 	&__form-btn {
+		position: relative;
 		width: 100%;
 		padding: 0.8em 0.5em;
 		border-radius: var(--border-radius);
@@ -470,11 +497,34 @@ a {
 		font-size: var(--font-size);
 		font-weight: 500;
 		color: #fff;
+
+		overflow: hidden;
+		z-index: 1;
+		transition: background-color 0.3s;
+
+		&::after {
+			position: absolute;
+			content: '';
+			left: 0;
+			top: 0;
+			height: 100%;
+			width: 100%;
+			transform: scaleX(0);
+			transform-origin: right;
+			background-color: #2523a0;
+			transition: transform 0.3s;
+			z-index: -1;
+		}
+
+		&:hover::after {
+			transform-origin: left;
+			transform: scaleX(1);
+		}
 	}
 }
 
 .footer {
-	background-color: colors.$second-section-color;
+	background-color: #00222d;
 
 	.wrapper {
 		padding-bottom: 3.2em;
@@ -495,6 +545,10 @@ a {
 		text-decoration: underline;
 		color: #b1dbff;
 		font-size: var(--font-size);
+		&:hover {
+			color: #7da6fe;
+			transition: color .3s;
+		}
 	}
 
 	&__links {
@@ -528,6 +582,12 @@ a {
 		justify-content: center;
 		align-items: center;
 		margin: 0 0.6em;
+		
+
+		&:hover {
+			transform: scale(1.2);
+			transition: transform .3s;
+		}
 
 		&-link {
 			display: flex;
@@ -535,6 +595,7 @@ a {
 			align-items: center;
 			height: 30px;
 			width: 30px;
+			transition: color .3s;
 		}
 
 		&-icon {
@@ -556,19 +617,21 @@ a {
 			&--instagram {
 				background-image: url(../../dist/img/instagram-icon.svg);
 			}
+
+			
 		}
 	}
 }
 
 .show-fade-up {
-	transform: translateY(0) !important;
+	translate: Y(0) !important;
 	opacity: 1 !important;
 }
 
 .animation {
 	opacity: 0;
 	transform: translateY(10px);
-	transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+	transition: translate 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
 // media queries
@@ -591,7 +654,6 @@ a {
 		}
 	}
 
-	
 	// zmaina intro img i about jak będe mieć już
 
 	.projects {
@@ -605,7 +667,7 @@ a {
 		}
 
 		&__card {
-			width: 48%;
+			width: 49%;
 		}
 	}
 }
@@ -621,8 +683,6 @@ a {
 			flex-direction: column;
 			justify-content: center;
 		}
-	
-	
 	}
 
 	.intro {
@@ -631,7 +691,6 @@ a {
 			margin: 4.8em auto;
 		}
 	}
-
 }
 
 @media (min-width: 768px) {
@@ -757,7 +816,7 @@ a {
 			grid-template-rows: repeat(3, 100px);
 			gap: 10px 20px;
 			padding: 3em;
-			background-color: #061017;
+			background-color: #162740;
 			border-radius: var(--border-radius);
 		}
 
@@ -785,6 +844,7 @@ a {
 		&__textarea {
 			height: 100%;
 			min-height: 0;
+			resize: none;
 		}
 
 		&__form-btn {
@@ -797,6 +857,16 @@ a {
 }
 
 @media (min-width: 992px) {
+	:root {
+		--h1-font-size: 4.5rem;
+		--h2-font-size: 3.7rem;
+		--h3-font-size: 2.4rem;
+	}
+
+	.wrapper {
+		padding-top: 8em;
+		padding-bottom: 8em;
+	}
 	.nav {
 		.hamburger {
 			display: none;
@@ -827,9 +897,13 @@ a {
 	}
 
 	.intro {
+		.wrapper {
+			padding-top: 10em;
+			padding-bottom: 10em;
+		}
 		&__img-box {
 			grid-column: 1/11;
-		}	
+		}
 
 		&__box {
 			grid-column: 12/27;
@@ -843,10 +917,9 @@ a {
 		&__text-box {
 			padding: 2em;
 		}
-	
+
 		&__text-box {
 			width: 100%;
 		}
 	}
 }
-
